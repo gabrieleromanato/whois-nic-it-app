@@ -1,0 +1,32 @@
+<section class="domains">
+    <header>
+        <h1>Domains</h1>
+    </header>
+    <p *ngIf="data.domains.length === 0">No domains found</p>
+     <ul *ngIf="data.domains.length > 0">
+          <li *ngFor="let domain of data.domains.reverse()">
+            <div class="domain">
+              <div class="name">{{ domain.domain }}</div>
+              <div><strong>Status:</strong> <span>{{ domain.status }}</span></div>
+              <div>
+                <strong>Expires:</strong> <span>{{ domain.expires }}</span>
+              </div>
+              <div>
+                <strong>Created:</strong> <span>{{ domain.created }}</span>
+              </div>
+              <div>
+                <strong>Updated:</strong> <span>{{ domain.updated }}</span>
+              </div>
+              <div>
+                <strong>Registrar:</strong> <span>{{ domain.registrar.name }}</span>
+              </div>
+              <div class="domain-actions">
+                <button class="remove-domain" (click)="removeDomain(domain.domain)">Remove</button>
+                <button class="update-domain" (click)="updateDomain(domain)">Update</button>
+              </div>
+
+            </div>
+          </li>
+      </ul>
+</section>
+<app-loader [visible]="loaderVisible"></app-loader>

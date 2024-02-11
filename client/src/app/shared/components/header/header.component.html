@@ -1,0 +1,12 @@
+<header class="app-header">
+    <div class="container">
+        <h1>
+          <a [routerLink]="['/']">.it Whois</a>
+        </h1>
+        <a [routerLink]="['/domains']" class="domains-link">
+          <span class="domains-count">
+            {{totalDomainsInStorage}}
+          </span>
+        </a>
+    </div>
+</header>

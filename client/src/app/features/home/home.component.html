@@ -1,0 +1,34 @@
+<form (ngSubmit)="handleWhoisSearch()">
+    <div class="form-group">
+        <input [(ngModel)]="domain" type="text" id="domain" name="domain" placeholder="">
+        <button type="submit" class="btn btn-primary">Whois</button>
+    </div>
+    <div *ngIf="errorMessage" class="alert alert-danger">{{errorMessage}}</div>
+    <div class="app-whois-result" *ngIf="whoisResponse.domain">
+        <div class="app-whois-result__item">
+            <div class="app-whois-result__label">Domain</div>
+            <div class="app-whois-result__value">{{whoisResponse.domain}}</div>
+        </div>
+        <div class="app-whois-result__item">
+            <div class="app-whois-result__label">Status</div>
+            <div class="app-whois-result__value">{{whoisResponse.status}}</div>
+        </div>
+        <div class="app-whois-result__item">
+            <div class="app-whois-result__label">Registrar</div>
+            <div class="app-whois-result__value">{{whoisResponse.registrar.name}}</div>
+        </div>
+        <div class="app-whois-result__item">
+            <div class="app-whois-result__label">Created</div>
+            <div class="app-whois-result__value">{{whoisResponse.created}}</div>
+        </div>
+        <div class="app-whois-result__item">
+            <div class="app-whois-result__label">Updated</div>
+            <div class="app-whois-result__value">{{whoisResponse.updated}}</div>
+        </div>
+        <div class="app-whois-result__item">
+            <div class="app-whois-result__label">Expires</div>
+            <div class="app-whois-result__value">{{whoisResponse.expires}}</div>
+        </div>
+    </div>
+</form>
+<app-loader [visible]="showLoader"></app-loader>
